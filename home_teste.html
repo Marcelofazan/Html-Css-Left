@@ -1,0 +1,257 @@
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+
+	<script language="javascript">
+	function EnviaContato() {
+
+		if (document.frmhometeste.nome.value == "") {
+			alert("Por favor, informe o Nome");
+			document.frmhometeste.nome.focus();
+			return false;
+		}
+		if (document.frmhometeste.email.value == "") {
+			alert("Por favor, informe o Email");
+			document.frmhometeste.email.focus();
+			return false;
+		}
+		if (document.frmhometeste.noticia.value == "") {
+			alert("Por favor, informe a Notícia");
+			document.frmhometeste.noticia.focus();
+			return false;
+		}
+		if (document.frmhometeste.telefone.value == "") {
+			alert("Por favor, informe o Telefone");
+			document.frmhometeste.telefone.focus();
+			return false;
+		}		
+
+  		var nome = $("#nome").val();   
+  		var email = $("#email").val();  
+  		var noticia = $("#noticia").val();  
+  		var telefone = $("#telefone").val();  
+
+
+ 		$.ajax({
+     			url: "http://api.vtexcrm.com.br/corebiz/dataentities/TE/documents",
+     			type: "POST",
+    			dataType: "json",
+     			headers: {"Accept": "application/vnd.vtex.ds.v10+json", "Content-Type": "application/json; charset=utf-8"},
+     			data: JSON.stringify({
+         			"name":  nome,
+         			"email": email,
+         			"phone": telefone,
+         			"notice": noticia
+     			}),
+     			success: function(data) {
+ 			alert("Informações enviadas");
+     		},
+			error: function(error) {
+		
+			var json = jQuery.parseJSON(error.responseText);
+		
+			console.log(json.Message);
+	
+    			 },
+     			complete: function() {
+        		console.log('Funcionou...');    
+     			}
+ 		});
+	}
+	</script>
+
+
+	<script type="text/javascript">
+	function setaImagem(){
+   		var settings = {
+        	primeiraImg: function(){
+            	elemento = document.querySelector("#slider a:first-child");
+            	elemento.classList.add("ativo");
+            	this.legenda(elemento);
+       	 	},
+
+        	slide: function(){
+            		elemento = document.querySelector(".ativo");
+
+            		if(elemento.nextElementSibling){
+                		elemento.nextElementSibling.classList.add("ativo");
+                		settings.legenda(elemento.nextElementSibling);
+                		elemento.classList.remove("ativo");
+           	 	}else{
+               			elemento.classList.remove("ativo");
+                		settings.primeiraImg();
+            		}
+        	},
+
+       		proximo: function(){
+            		clearInterval(intervalo);
+            		elemento = document.querySelector(".ativo");
+
+            		if(elemento.nextElementSibling){
+                		elemento.nextElementSibling.classList.add("ativo");
+                		settings.legenda(elemento.nextElementSibling);
+                		elemento.classList.remove("ativo");
+           		 }else{
+               			elemento.classList.remove("ativo");
+                		settings.primeiraImg();
+            		}
+            		intervalo = setInterval(settings.slide,4000);
+       		 },
+
+        	anterior: function(){
+            		clearInterval(intervalo);
+            		elemento = document.querySelector(".ativo");
+
+            		if(elemento.previousElementSibling){
+                		elemento.previousElementSibling.classList.add("ativo");
+                		settings.legenda(elemento.previousElementSibling);
+               			elemento.classList.remove("ativo");
+            		}else{
+                		elemento.classList.remove("ativo");                     
+                		elemento = document.querySelector("a:last-child");
+                		elemento.classList.add("ativo");
+                		this.legenda(elemento);
+            		}
+            		intervalo = setInterval(settings.slide,4000);
+        	},
+
+       		legenda: function(obj){
+            		var legenda = obj.querySelector("img").getAttribute("alt");
+            		document.querySelector("figcaption").innerHTML = legenda;
+        		}
+
+    		}
+
+    		//chama o slide
+    		settings.primeiraImg();
+
+    		//chama a legenda
+    		settings.legenda(elemento);
+
+    		//chama o slide à um determinado tempo
+    		var intervalo = setInterval(settings.slide,4000);
+    		document.querySelector(".next").addEventListener("click",settings.proximo,false);
+    		document.querySelector(".prev").addEventListener("click",settings.anterior,false);
+	}
+
+	window.addEventListener("load",setaImagem,false);
+	</script>
+</head>
+<body>
+	<div class="pagina">
+		<div class="boxtopo">
+			<div class="fake-input">
+    				<input type="text" value = "Buscar" style="font-size:9px;" /> 
+    				<img src="images/pesquisa.jpg" />
+			</div>
+ 			 <div class="usuario">
+				<div class="tagtopo" style="margin: 0px 0px; font-size:14px;"><img src="images/usuario.jpg" style="margin: -4px 2px;" />Minha conta</div>
+			</div>
+ 			 <div class="entrar">
+				<div class="tagtopo" style="margin: 0px 0px; font-size:14px;"><img src="images/entrar.jpg" style="margin: -4px 2px;"/>Entrar</div>
+			 </div>
+ 		 	<div class="carrinho">
+				<div class="tagtopo" style="margin: 3px 0px; font-size:13px;"><img src="images/carrinho.jpg" style="margin: -4px 2px;" />Carrinho: 0 itens</div>
+			</div>
+		</div>
+ 		<hr align="center" width=100% size="1" color=#C0C0C0>			
+		<div class="logotipo"></div>
+		<div class="boxmenu">
+			<nav>
+  				<ul class="menu">
+					<li><a style="margin: 0px 60px;"></a></li>
+					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CAMISAS</a></li>
+					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CAMISETAS</a></li>
+	  				<li><a href="#" style="margin: 0px 5px; font-size:15px;">BLUSAS</a>
+					<li><a href="#" style="margin: 0px 5px; font-size:15px;">BERMUDAS</a></li>
+					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CALÇAS</a></li>
+					<li><a href="#" style="margin: 0px 5px; font-size:15px;">ACESSÓRIOS</a></li>
+	  				<li><a href="#" style="margin: 0px 5px; font-size:15px;">SALES</a></li>    
+					<hr align="center" width=100% size="2" color=black style="margin: 0px -40px; margin-top:50px; width: 1190px;">        
+				</ul>		
+			</nav>
+		</div>
+
+		<div class="boxmenu2">
+			 <div class="entrega">
+				<div class="tagtopo" style="margin: 30px -10px; font-size:13px;"><img src="images/entrega.jpg" style="margin: 0px 10px;" /><div style="margin: -30px 60px;"><div class="destaque"><b>FRETE GRÁTIS P/ TODO BRASIL</b><br>Nas compras acima de R$200,00</div></div></div>
+			</div>
+			<div class="linha-vertical"></div>
+ 			<div class="troca">
+				<div class="tagtopo" style="margin: 27px 5px; font-size:13px;"><img src="images/troca.jpg" style="margin: 0px 10px;"/><div style="margin: -30px 50px;"><div class="destaque"><b>30 DIAS DE TROCA GRÁTIS</b><br>Voçê tem até 30 dias para trocar</div></div></div>
+			</div>
+			<div class="linha-vertical"></div>
+ 		 	<div class="pagamento">
+				<div class="tagtopo" style="margin: 22px 10px; font-size:13px;"><img src="images/pagamento.jpg" style="margin: 10px -5px;" /><div style="margin: -40px 50px;"><div class="destaque"><b>PAGUE EM ATÉ 12X S/ JUROS</b><br>Parcela mínima de R$50,00</div></div></div>
+			</div>
+			<div class="linha-vertical"></div>
+ 		 	<div class="televenda">
+				<div class="tagtopo" style="margin: 25px 1px; font-size:13px;"><img src="images/televenda.jpg" style="margin: 10px 10px;" /><div style="margin: -35px 50px;"><div class="destaque"><b>TELEVENDAS: (11)4063-3682</b><br>Atendimento 24 horas por dia</div></div></div>
+			</div>
+
+		</div>
+
+		<div class="boxdestaque1">
+			<figure >
+   				<span class="trs next"></span>
+   				<span class="trs prev"></span>
+
+   				<div id="slider">
+      					<a href="#" class="trs"><img src="fotos/destaque1.jpg"></a>
+     					<a href="#" class="trs"><img src="fotos/destaque2.jpg"></a>
+   				</div>
+   				<figcaption></figcaption>
+			</figure>
+		</div>
+		<div class="boxdestaque2">
+		</div>
+		<div class="boxform">
+			<form name="frmhometeste"  method="POST" onSubmit="return EnviaContato();">
+				<table style="margin:0px auto; width:500px">
+  					<tr>
+    						<td width="155"><p style="font-size:14px"><b>Nome:</b></p></td>
+    						<td width="332">&nbsp;</td>
+    						<td width="332"><p style="font-size:14px"><b>Mensagem:</b></p></td>
+  					</tr>
+  					<tr>
+    						<td><label>
+      							<input class="text" name="nome" type="text" id="nome" size="35" />
+    						</label></td>
+    						<td rowspan="3">&nbsp;</td>
+						<td rowspan="3"><label>
+      							<textarea name="noticia" class="text" cols="40" rows="5" id="noticia">Digite sua mensagem aqui
+							</textarea>
+    						</label></td>
+  					</tr>
+  					<tr>
+   	 					<td><p style="font-size:14px"><b>Email:</b></p></td>
+  					</tr>
+  					<tr>
+    						<td><input name="email" class="text" type="text" id="email" size="35" /></td>
+  					</tr>
+  					<tr>
+    						<td><p style="font-size:14px"><b>Celular:</b></p></td>
+    						<td>&nbsp;</td>
+    						<td>&nbsp;</td>
+  					</tr>
+  					<tr>
+    						<td><input name="telefone" class="text" type="text" id="telefone" size="35" /></td>
+    						<td>&nbsp;</td>
+    						<td><label>
+      							<div align="right" >
+								<input type = submit class="button" value="ENVIAR" style="font-size : 14px;  />
+        						</div>
+    						</label></td>
+ 					</tr>
+				</table>
+			</form>
+		</div>
+	<div class="boxrodape"></div>
+	</div>
+</body>
+</html>
