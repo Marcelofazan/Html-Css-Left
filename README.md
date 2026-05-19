@@ -1,4 +1,4 @@
- ## 🚀 Site-Moda
+ ## 🚀 Modelo-Site-Moda
 Exemplo de aplicação para teste de vaga de emprego.
 
 Link Demonstração: 
