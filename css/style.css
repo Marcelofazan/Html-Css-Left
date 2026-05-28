@@ -152,9 +152,8 @@ body {
 	background-image: url(../images/destaque.jpg);
 	background-repeat: no-repeat; 
     
-    /* ADICIONE ESTAS LINHAS */
-    background-size: cover; /* Cobre toda a área, pode cortar partes da imagem */
-    background-position: center; /* Centraliza a imagem */
+    background-size: cover;
+    background-position: center;
 }
 .boxform {
 	float: left;
