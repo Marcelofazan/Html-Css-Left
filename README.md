@@ -1,5 +1,5 @@
- ## 🌐 CSS-Left-Box
-Exemplo de Website com estrutura Box CSS Sprite.
+ ## 🌐 Html-Css-Sprite
+Exemplo de Website em Left para teste aplicado de vaga de emprego.
 
 #### 🎨 Aqui está uma demonstração do Projeto 
 [https://marcelofazan.github.io/Html-Css-Left](https://marcelofazan.github.io/Html-Css-Left/)
