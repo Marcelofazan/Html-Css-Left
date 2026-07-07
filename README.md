@@ -1,5 +1,5 @@
- ## 🌐 Html-Css-Sprite
-Exemplo de Website em Left para teste aplicado de vaga de emprego.
+ ## 🌐 Css-Box-Sprite
+Exemplo de Website com CSS Left para teste aplicado de vaga de emprego.
 
 #### 🎨 Aqui está uma demonstração do Projeto 
 [https://marcelofazan.github.io/Html-Css-Sprite](https://marcelofazan.github.io/Html-Css-Sprite/)
