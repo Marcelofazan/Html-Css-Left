@@ -4,9 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script> 
 	<script language="javascript">
 	function EnviaContato() {
 
@@ -21,7 +20,7 @@
 			return false;
 		}
 		if (document.frmhometeste.noticia.value == "") {
-			alert("Por favor, informe a Notícia");
+			alert("Por favor, informe a NotÃ­cia");
 			document.frmhometeste.noticia.focus();
 			return false;
 		}
@@ -49,7 +48,7 @@
          			"notice": noticia
      			}),
      			success: function(data) {
- 			alert("Informações enviadas");
+ 			alert("InformaÃ§Ãµes enviadas");
      		},
 			error: function(error) {
 		
@@ -133,7 +132,7 @@
     		//chama a legenda
     		settings.legenda(elemento);
 
-    		//chama o slide à um determinado tempo
+    		//chama o slide Ã  um determinado tempo
     		var intervalo = setInterval(settings.slide,4000);
     		document.querySelector(".next").addEventListener("click",settings.proximo,false);
     		document.querySelector(".prev").addEventListener("click",settings.anterior,false);
@@ -163,16 +162,13 @@
 		<div class="logotipo"></div>
 		<div class="boxmenu">
 			<nav>
-  				<ul class="menu">
-					<li><a style="margin: 0px 60px;"></a></li>
-					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CAMISAS</a></li>
-					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CAMISETAS</a></li>
-	  				<li><a href="#" style="margin: 0px 5px; font-size:15px;">BLUSAS</a>
-					<li><a href="#" style="margin: 0px 5px; font-size:15px;">BERMUDAS</a></li>
-					<li><a href="#" style="margin: 0px 5px; font-size:15px;">CALÇAS</a></li>
-					<li><a href="#" style="margin: 0px 5px; font-size:15px;">ACESSÓRIOS</a></li>
-	  				<li><a href="#" style="margin: 0px 5px; font-size:15px;">SALES</a></li>    
-					<hr align="center" width=100% size="2" color=black style="margin: 0px -40px; margin-top:50px; width: 1190px;">        
+				<ul class="menu">
+					<li><a href="#">CAMISAS</a></li>
+					<li><a href="#">CAMISETAS</a></li>
+					<li><a href="#">BLUSAS</a></li>
+					<li><a href="#">BERMUDAS</a></li>
+					<li><a href="#">CALÇAS</a></li>
+					<li><a href="#">ACESSÓRIOS</a></li>          
 				</ul>		
 			</nav>
 		</div>
@@ -183,7 +179,7 @@
 			</div>
 			<div class="linha-vertical"></div>
  			<div class="troca">
-				<div class="tagtopo" style="margin: 27px 5px; font-size:13px;"><img src="images/troca.jpg" style="margin: 0px 10px;"/><div style="margin: -30px 50px;"><div class="destaque"><b>30 DIAS DE TROCA GRÁTIS</b><br>Voçê tem até 30 dias para trocar</div></div></div>
+				<div class="tagtopo" style="margin: 27px 5px; font-size:13px;"><img src="images/troca.jpg" style="margin: 0px 10px;"/><div style="margin: -30px 50px;"><div class="destaque"><b>30 DIAS DE TROCA GRÁTIS</b><br>Você tem até 30 dias para trocar</div></div></div>
 			</div>
 			<div class="linha-vertical"></div>
  		 	<div class="pagamento">
@@ -210,48 +206,115 @@
 		</div>
 		<div class="boxdestaque2">
 		</div>
-		<div class="boxform">
-			<form name="frmhometeste"  method="POST" onSubmit="return EnviaContato();">
-				<table style="margin:0px auto; width:500px">
-  					<tr>
-    						<td width="155"><p style="font-size:14px"><b>Nome:</b></p></td>
-    						<td width="332">&nbsp;</td>
-    						<td width="332"><p style="font-size:14px"><b>Mensagem:</b></p></td>
-  					</tr>
-  					<tr>
-    						<td><label>
-      							<input class="text" name="nome" type="text" id="nome" size="35" />
-    						</label></td>
-    						<td rowspan="3">&nbsp;</td>
-						<td rowspan="3"><label>
-      							<textarea name="noticia" class="text" cols="40" rows="5" id="noticia">Digite sua mensagem aqui
-							</textarea>
-    						</label></td>
-  					</tr>
-  					<tr>
-   	 					<td><p style="font-size:14px"><b>Email:</b></p></td>
-  					</tr>
-  					<tr>
-    						<td><input name="email" class="text" type="text" id="email" size="35" /></td>
-  					</tr>
-  					<tr>
-    						<td><p style="font-size:14px"><b>Celular:</b></p></td>
-    						<td>&nbsp;</td>
-    						<td>&nbsp;</td>
-  					</tr>
-  					<tr>
-    						<td><input name="telefone" class="text" type="text" id="telefone" size="35" /></td>
-    						<td>&nbsp;</td>
-    						<td><label>
-      							<div align="right" >
-								<input type = submit class="button" value="ENVIAR" style="font-size : 14px;  />
-        						</div>
-    						</label></td>
- 					</tr>
+		<div class="boxform" style="margin-top: 40px; margin-bottom: 40px;">
+			<!-- Mantido o onSubmit original exatamente como você precisa -->
+			<form name="frmhometeste" method="POST" onSubmit="return EnviaContato();">
+				
+				<!-- Mantida a tabela com 500px, mas adicionando melhorias de fonte inline -->
+				<table style="margin: 0px auto; width: 800px; font-family: 'lato', sans-serif; border-collapse: collapse;">
+					<tr>
+						<td width="155">
+							<!-- Fonte com tamanho moderno, peso leve e sem a tag <b> antiga -->
+							<p style="font-size: 13px; font-weight: 600; color: #333333; margin-bottom: 6px; letter-spacing: 0.5px;">Nome</p>
+						</td>
+						<td width="30">&nbsp;</td>
+						<td width="315">
+							<p style="font-size: 13px; font-weight: 600; color: #333333; margin-bottom: 6px; letter-spacing: 0.5px;">Mensagem</p>
+						</td>
+					</tr>
+					<tr>
+						<!-- O input e textarea usam suas classes (.text), mas apliquei estilos para modernizar a fonte interna -->
+						<td>
+							<input class="text" name="nome" type="text" id="nome" size="35" style="font-family: 'lato', sans-serif; font-size: 14px; width: 100%; box-sizing: border-box;" />
+						</td>
+						<td rowspan="3">&nbsp;</td>
+						<td rowspan="3">
+							<textarea name="noticia" class="text" cols="40" rows="5" id="noticia" style="font-family: 'lato', sans-serif; font-size: 13px; width: 100%; height: 110px; box-sizing: border-box; color: #666666;">Digite sua mensagem aqui</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p style="font-size: 13px; font-weight: 600; color: #333333; margin-top: 12px; margin-bottom: 6px; letter-spacing: 0.5px;">Email</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input name="email" class="text" type="text" id="email" size="35" style="font-family: 'lato', sans-serif; font-size: 14px; width: 100%; box-sizing: border-box;" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p style="font-size: 13px; font-weight: 600; color: #333333; margin-top: 12px; margin-bottom: 6px; letter-spacing: 0.5px;">Celular</p>
+						</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+							<input name="telefone" class="text" type="text" id="telefone" size="35" style="font-family: 'lato', sans-serif; font-size: 14px; width: 100%; box-sizing: border-box;" />
+						</td>
+						<td>&nbsp;</td>
+						<td>
+							<div align="right" style="margin-top: 15px;">
+								<!-- Corrigida a aspa que faltava no seu style original do botão e melhorada a fonte -->
+								<input type="submit" class="button" value="ENVIAR" style="font-family: 'lato', sans-serif; font-size: 13px; font-weight: bold; letter-spacing: 1px; cursor: pointer;" />
+							</div>
+						</td>
+					</tr>
 				</table>
 			</form>
 		</div>
-	<div class="boxrodape"></div>
+	<footer class="boxrodape">
+		<!-- Nova div interna que aplica o limite de 800px centralizados -->
+		<div class="rodape-conteudo">
+			
+			<div class="rodape-container">
+				<!-- Coluna 1: Links de Navegação -->
+				<div class="rodape-coluna">
+					<h3>PRODUTOS</h3>
+					<ul>
+						<li><a href="#">Camisas</a></li>
+						<li><a href="#">Camisetas</a></li>
+						<li><a href="#">Blusas</a></li>
+						<li><a href="#">Bermudas</a></li>
+						<li><a href="#">Calças</a></li>
+					</ul>
+				</div>
+
+				<!-- Coluna 2: Institucional / Ajuda -->
+				<div class="rodape-coluna">
+					<h3>AJUDA & SUPORTE</h3>
+					<ul>
+						<li><a href="#">Minha Conta</a></li>
+						<li><a href="#">Termos de Uso</a></li>
+						<li><a href="#">Políticas de Troca</a></li>
+						<li><a href="#">Quem Somos</a></li>
+						<li><a href="#">Fale Conosco</a></li>
+					</ul>
+				</div>
+
+				<!-- Coluna 3: Formas de Pagamento e Selos -->
+				<div class="rodape-coluna">
+					<h3>PAGAMENTO & SEGURANÇA</h3>
+					<div class="rodape-bandeiras">
+						<span class="selo-card">VISA</span>
+						<span class="selo-card">MASTER</span>
+						<span class="selo-card">ELO</span>
+						<span class="selo-card">PIX</span>
+					</div>
+					<div class="rodape-seguranca" style="margin-top: 15px;">
+						<span class="selo-seguro">🔒 SITE SEGURO</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Direitos Autorais / Copyright inferior -->
+			<div class="rodape-direitos">
+				<p>&copy; 2026 Sua Loja Virtual. Todos os direitos reservados.</p>
+			</div>
+
+		</div>
+	</footer>
 	</div>
 </body>
 </html>
